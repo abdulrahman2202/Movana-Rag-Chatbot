@@ -34,7 +34,13 @@ class RAGService:
         
         # Google Gemini LLM
         cleaned_key = GEMINI_API_KEY.strip(' "\'')
-        is_valid_key = cleaned_key.startswith("AIzaSy")
+        placeholder_b = "your_gemini_api_key"
+        is_valid_key = (
+            cleaned_key 
+            and len(cleaned_key) > 20 
+            and "Ab8RN6Kak" not in cleaned_key 
+            and not cleaned_key.startswith(placeholder_b)
+        )
         if is_valid_key:
             print("Valid Gemini API key detected. Initializing ChatGoogleGenerativeAI (gemini-2.5-flash)...")
             self.llm = ChatGoogleGenerativeAI(
@@ -45,7 +51,7 @@ class RAGService:
             )
         else:
             if GEMINI_API_KEY:
-                print("WARNING: The provided GEMINI_API_KEY in .env is not a valid Gemini key (should start with 'AIzaSy').")
+                print("WARNING: The provided GEMINI_API_KEY in .env is a placeholder or invalid.")
             print("RAG will run in high-quality developer sandbox/simulation mode.")
             self.llm = None
 
