@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # Python FastAPI Backend with CPU-optimized Whisper and ChromaDB vector store
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: movana_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - ENV=production
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - CHROMADB_DIR=/workspace/chroma_db
+      - WHISPER_MODEL=tiny
+    volumes:
+      # Persistent local storage for vector database chunks
+      - chroma_data:/workspace/chroma_db
+    restart: always
+
+  # Next.js 15 App Router Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: movana_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: always
+
+volumes:
+  chroma_data:
+    driver: local
