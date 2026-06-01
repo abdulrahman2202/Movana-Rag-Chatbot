@@ -192,7 +192,7 @@ function MainDashboard() {
 
       {/* Footer Branding */}
       <footer className="text-center mt-12 py-6 border-t border-zinc-900 text-[10px] text-zinc-600 font-medium">
-        &copy; {new Date().getFullYear()} Movana. Built with Next.js 15, FastAPI, LangChain, ChromaDB, and Google Gemini 2.5 Flash.
+        &copy; {new Date().getFullYear()} Movana. Built with Next.js 15, FastAPI, LangChain, ChromaDB, and Google Gemini 2.5 Flash. By Abdul Rahman
       </footer>
     </div>
   );
