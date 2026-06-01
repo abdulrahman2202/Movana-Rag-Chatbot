@@ -62,7 +62,7 @@ Navigate to the `backend/` folder:
 cd backend
 # Create virtual environment
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+.\.venv\Scripts\Activate.ps1  # On Linux/macOS: source .venv/bin/activate
 
 # Install dependencies (CPU-optimized PyTorch is pre-configured)
 pip install -r requirements.txt
@@ -71,8 +71,8 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env and enter GEMINI_API_KEY=AIzaSy...
 
-# Start dev server
-python app/main.py
+# Start dev server using Uvicorn
+python -m uvicorn app.main:app --reload
 ```
 *The backend API will start on http://localhost:8000.*
 
