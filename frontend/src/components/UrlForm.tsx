@@ -107,11 +107,11 @@ export default function UrlForm({ onSubmit, onDemoTrigger, isLoading, error }: U
           )}
 
           {/* Submit and Demo buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
+          <div className="flex pt-2">
             <button
               type="submit"
               disabled={isLoading}
-              className="flex-1 py-3 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:from-purple-900/40 disabled:to-indigo-900/40 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 glowing-btn disabled:animation-none cursor-pointer"
+              className="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:from-purple-900/40 disabled:to-indigo-900/40 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 glowing-btn disabled:animation-none cursor-pointer"
             >
               {isLoading ? (
                 <>
@@ -125,16 +125,6 @@ export default function UrlForm({ onSubmit, onDemoTrigger, isLoading, error }: U
                   <ArrowRight className="h-4 w-4" />
                 </>
               )}
-            </button>
-
-            <button
-              type="button"
-              onClick={onDemoTrigger}
-              disabled={isLoading}
-              className="py-3 px-4 bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-gray-300 font-semibold rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <Sparkles className="h-5 w-5 text-purple-400" />
-              <span>Load Quick Demo</span>
             </button>
           </div>
         </form>

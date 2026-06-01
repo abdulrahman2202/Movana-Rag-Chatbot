@@ -77,7 +77,7 @@ export default function VideoCard({ video, type }: VideoCardProps) {
           "text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider",
           isYoutube ? "bg-red-950/40 text-red-400" : "bg-pink-950/40 text-pink-400"
         )}>
-          Video {type} (YouTube)
+          Video {type} ({isYoutube ? "YouTube" : "Instagram Reel"})
         </span>
         {isYoutube ? (
           <Youtube className="h-5 w-5 text-red-500" />
