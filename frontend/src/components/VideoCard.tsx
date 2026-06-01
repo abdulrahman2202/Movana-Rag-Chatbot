@@ -98,8 +98,8 @@ export default function VideoCard({ video, type }: VideoCardProps) {
               loading="lazy"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-zinc-900/60">
-              {isYoutube ? <Youtube className="h-8 w-8 text-zinc-700" /> : <Instagram className="h-8 w-8 text-zinc-700" />}
+            <div className="w-full h-full flex items-center justify-center bg-black">
+              {isYoutube && <Youtube className="h-8 w-8 text-zinc-800" />}
             </div>
           )}
           {video.duration ? (

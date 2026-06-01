@@ -128,17 +128,11 @@ def extract_metadata(url: str, is_youtube: bool) -> VideoMetadata:
                 upload_date = "2026-02-15" if is_youtube else "2026-03-01"
                 
             duration = info.get('duration') or (720 if is_youtube else 58)
-            hashtags = info.get('tags') or ([] if is_youtube else ["nextjs", "coding", "webdev", "instagramreels", "software"])
+            hashtags = info.get('tags') or []
             follower_count = info.get('channel_follower_count') or (890000 if is_youtube else 230000)
-            thumbnail = info.get('thumbnail') or info.get('thumbnails', [{}])[0].get('url')
             
-            # Instagram CDN thumbnails expire quickly (returning 403/410). For Reels, always use our gorgeous static placeholder.
-            if not is_youtube or not thumbnail:
-                thumbnail = (
-                    "https://images.unsplash.com/photo-1618401471353-b98aedd07871?w=500&auto=format&fit=crop&q=60"
-                    if is_youtube else
-                    "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=500&auto=format&fit=crop&q=60"
-                )
+            # Extract thumbnail - if none found or if it's Instagram Reel (whose URL expires quickly), return None to show black in frontend
+            thumbnail = info.get('thumbnail') or info.get('thumbnails', [{}])[0].get('url') if is_youtube else None
                 
             er = ((likes + comments) / max(views, 1)) * 100
             
