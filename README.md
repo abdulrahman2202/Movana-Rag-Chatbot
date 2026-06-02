@@ -192,3 +192,20 @@ To scale Movana to support millions of creators daily, we recommend transitionin
    - **Strategy**: Implement an in-memory **Redis Cache** database. If a YouTube/Reel URL is requested and was analyzed in the last 24 hours, serve the cached metadata and vectors instantly.
 4. **API Worker Clustering**:
    - Deploy multiple FastAPI container replicas behind an **Nginx Load Balancer or AWS Application Load Balancer (ALB)** to distribute API calls horizontally across different virtual machines.
+
+
+---
+
+## ScreenShort
+
+<img width="1918" height="915" alt="Screenshot 2026-06-02 124736" src="https://github.com/user-attachments/assets/04f64bfc-b82b-449c-9ea0-b333603c022d" />
+
+<img width="1913" height="722" alt="Screenshot 2026-06-02 124441" src="https://github.com/user-attachments/assets/8381a29a-a9eb-403d-ac7f-1b1eccf37de3" />
+
+<img width="1916" height="898" alt="Screenshot 2026-06-02 125136" src="https://github.com/user-attachments/assets/4193af1e-acb8-43af-8ecd-d130b9fd9dc9" />
+
+<img width="1911" height="894" alt="Screenshot 2026-06-02 125302" src="https://github.com/user-attachments/assets/6a4c88c5-dcea-41bd-83be-304e296ad247" />
+
+
+
+
